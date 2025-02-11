@@ -1,0 +1,19 @@
+{
+  "ignoreList": [
+      "def",
+      "url",
+      "eval",
+      "json",
+      "string",
+      "xml",
+      "xmlstring",
+      "set",
+      "text",
+      "table",
+      "copy",
+      "configure",
+      "replace",
+      "remove",
+      "call \\[Set the ignore list as a system prop\\]"
+  ]
+}

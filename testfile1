@@ -1,0 +1,6 @@
+test
+//       //AppName-------------[Appurl ,Status ,StatusCode ,Execution time ,Execution Date and Time ]
+//        //TELUS_NETCRACKER----[http://asfweb-itn03.tsl.telus.com/, Pass, 200, 138, 2023-01-15T19:12:38.613+05:30]
+
+Narasimhamurthy T N, 31 min
+-U clean test  -Dretry.testng=0 -DtestSet=testng.xml

@@ -1,0 +1,125 @@
+name: run-karate-api-tests
+on:
+  push: 
+    branches: [ main ]
+  # workflow_call:
+  #   secrets:
+  #     CDO_WORKLOAD_IDENTITY_PROVIDER_GCP:
+  #       required: true
+  #       description: GCP WIP to authenticate github runner
+  workflow_dispatch:
+    # inputs:
+    #   API_TESTS_CMD: 
+    #     description: 'Enter mvn full command here'
+    #     required: true
+    #     type: string
+    #   API_TESTS_PATH:
+    #     description: 'Enter test cases root path here'
+    #     required: true
+    #     type: string
+
+
+env:
+  #----------------GCP DEVOPS SERVICES (Cloud Build & Cloud Deploy) Related VARIABLES -------------------#
+  #Your GCP Project where CloudDeploy, Cloud Build and worker pools are configured
+  PROJECT_ID: cio-creditmgmt-np-15dfbe
+  CLOUD_DEPLOY_REGION: northamerica-northeast1
+  #Your Cloud Deploy pipeline name, as defined in clouddeploy.yaml metadata.name for kind:DeliveryPipeline
+  DELIVERY_PIPELINE_NAME: cio-creditmgmt-test
+
+  #----------------GCP REGISTRY SERVICES (GAR and GCR) RELATED VARIABLES --------------------------------#
+  #The Project name where GCP and GAR are present where you want to deploy your built images; you likely don't have to change this
+  GCR_GAR_PROJECT: cdo-gke-private-np-1a8686
+  #The Google Container and Artifact Registry where you want to deploy; you likely don't have to change this
+  GCP_REGISTRY: northamerica-northeast1-docker.pkg.dev
+  #The Google Cloud Region where you want to deploy the application
+  REGION: northamerica-northeast1
+  #The Google Artifact Registry with fully qualified path where you want to push the built Karate images
+  #GA_REGISTRY: ${{ env.GCP_REGISTRY }}/${{ env.GCP_GAR_PROJECT }}/applications/ep-reference-application
+  GA_REGISTRY: northamerica-northeast1-docker.pkg.dev/cio-gke-devops-e4993356/applications
+  #-----------------GCP GKE SERVICES RELATED VARIABLES ---------------------------------------------------#
+  #Your Google Cloud Non-Prod Project where GKE Clusters are created
+  GKE_PROJECT_ID: cdo-gke-private-np-1a8686
+  #The GKE Cluster where you want to deploy
+  GKE_CLUSTER: private-na-ne1-001
+  #The GKE Namespace where you want to deploy; you likely don't have to change this
+  GKE_NAMESPACE: cio-creditmgmt
+
+  #---------------APPLICATION RELATED VARIABLES ------------------------------------------------------------#
+  #The application  name
+  APP_NAME: ecp-api
+  #The project specific service account
+  #GITHUB_SERVICE_ACCOUNT: cicd-service-account@${{ env.PROJECT_ID }}.iam.gserviceaccount.com
+  GITHUB_SERVICE_ACCOUNT: cicd-service-account@cio-creditmgmt-np-15dfbe.iam.gserviceaccount.com
+  # test case path
+  API_TEST_CASES_PATH: /karate_tests/ne
+  #API Tests mvn command
+  API_TESTS_CMD: mvn clean test -Dkarate.env=it03 -Dthreads=1
+  #API Test patj
+  API_TESTS_PATH: .
+
+jobs:
+  run-karate-tests:
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    environment:
+      name: dev
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Removing Proxy
+        run: |
+          find ne/ -type f -exec sed -i -e "s,* configure proxy = 'http://webproxystatic-on.tsl.telus.com:8080',,g" {} \;
+          ls -ltr
+          cat src/test/resources/services/Phase_2/CreditMgmtService/TMFService/getAuthToken.feature
+
+      - id: auth
+        name: Authenticate to Google using WIF
+        uses: google-github-actions/auth@v0
+        with:
+          workload_identity_provider: ${{ secrets.CDO_WORKLOAD_IDENTITY_PROVIDER_GCP }}
+          service_account: ${{ env.GITHUB_SERVICE_ACCOUNT }}
+          project_id: ${{ env.PROJECT_ID }}
+          token_format: "access_token"
+
+      - name: Set up Cloud SDK
+        uses: "google-github-actions/setup-gcloud@v0"
+        with :
+          project_id: ${{ env.PROJECT_ID }}
+         
+
+      - name: Setup Docker
+        run: |
+          gcloud auth configure-docker ${{ env.GCP_REGISTRY }}
+
+      - name: Build Karate Image
+        run: |
+          echo $KARATE_TAG
+          echo "The Built Karate image is stored in ${{ env.GA_REGISTRY }}/${{ env.APP_NAME }}-karate-image:latest"
+          DOCKER_BUILDKIT=1 docker build --secret id=google_credentials,src=$GOOGLE_GHA_CREDS_PATH -t ${{ env.GA_REGISTRY }}/${{ env.APP_NAME }}-karate-image:latest .
+          gcloud info
+          docker push ${{ env.GA_REGISTRY }}/${{ env.APP_NAME }}-karate-image:latest
+
+
+      - name: Run Karate Scripts
+        run: |
+          JOB_NAME=${{ env.APP_NAME }}-karate
+          envsubst < karate-deployment.yaml > karate-deployment-new.yaml
+          gcloud container clusters get-credentials "${{ env.GKE_CLUSTER }}" --internal-ip --region=${{ env.REGION }} --project=${{ env.GKE_PROJECT_ID }}
+          gcloud builds submit --region=${{ env.REGION }} --project=${{ env.PROJECT_ID }} --config=cloudbuild.yaml --worker-pool=projects/cdo-cloud-build-pools-np-1c2f/locations/northamerica-northeast1/workerPools/private-pool-e2-standard-8 --substitutions=_CLUSTER_INFO="${{ env.GKE_CLUSTER }}",_REGION_INFO="${{ env.REGION }}",_API_TEST_PATH="${{ env.API_TESTS_PATH }}",_NAMESPACE_INFO="${{ env.GKE_NAMESPACE }}",_GKE_PROJ_NAME="${{ env.GKE_PROJECT_ID }}",_JOB_NAME="$JOB_NAME",_GCP_PROJECT_ID="${{ env.PROJECT_ID }}"
+          gcloud builds list --region=${{ env.REGION }} --project=${{ env.PROJECT_ID }} --format=json --filter tags="karate" --limit=1 > temp.json
+          cloud_build_id=`grep -o '"id": "[^"]*' temp.json | grep -o '[^"]*$'`
+          echo "Cloud Build Id is:" $cloud_build_id
+          sleep 15
+          gcloud builds log $cloud_build_id --region ${{ env.REGION }}
+        env:
+          GAR_IMAGE: ${{ env.GA_REGISTRY }}/${{ env.APP_NAME }}-karate-image:latest
+          PROJ_NAME: ${{ env.APP_NAME }}-karate
+          API_TEST_CASES_PATH: ${{ env.API_TEST_CASES_PATH }}
+          API_TESTS_CMD: ${{ env.API_TESTS_CMD }}
+          # API_TESTS_PATH: karate_tests
+          # API_TESTS_CMD: mvn clean test -Dkarate.env=DV -Dthreads=1 

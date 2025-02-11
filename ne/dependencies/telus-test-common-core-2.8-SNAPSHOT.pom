@@ -1,0 +1,337 @@
+<!-- TELUS - CORE UI FRAMEWORK-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>telus.bt.automation</groupId>
+	<artifactId>telus-test-common-core</artifactId>
+	<version>2.8-SNAPSHOT</version>
+
+	<name>telus-test-common-core</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<maven.compiler.version>2.3.2</maven.compiler.version>
+		<maven.surefire.version>2.19.1</maven.surefire.version>
+		<selenium.version>3.14.0</selenium.version>
+		<cucumber.version>1.2.5</cucumber.version>
+		<testNG.version>7.4.0</testNG.version>
+		<collections4.version>4.1</collections4.version>
+		<log4j.version>2.17.0</log4j.version>
+		<cucumberReporting.version>3.8.0</cucumberReporting.version>
+		<cucumberextentreport.version>3.0.2</cucumberextentreport.version>
+		<extentreports.version>3.1.2</extentreports.version>
+		<poi.version>3.11</poi.version>
+		<self4j.version>2.17.0</self4j.version>
+		<json.version>20180130</json.version>
+		<spring.jdbc.version>5.0.7.RELEASE</spring.jdbc.version>
+		<extentreports.version>3.1.2</extentreports.version>
+		<commons-io.version>2.2</commons-io.version>
+		<forkCount>4</forkCount>
+		<ojdbc.version>12.2.0.1</ojdbc.version>
+		<groovyJson.version>2.5.5</groovyJson.version>
+		<json.simple.version>1.1.1</json.simple.version>
+	</properties>
+
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+							
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Start - execute  test runners -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.version}</version>
+				<executions>
+					<execution>
+						<id>default-test</id>
+						<configuration>
+							<skip>false</skip>
+							<suiteXmlFiles>
+								<suiteXmlFile>testng.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<forkCount>${forkCount}</forkCount>
+							<reuseForks>false</reuseForks>
+							<argLine>-Duser.language=en</argLine>
+							<argLine>-Xmx1024m</argLine>
+							<argLine>-XX:MaxPermSize=256m</argLine>
+							<argLine>-Dfile.encoding=UTF-8</argLine>
+							<useFile>false</useFile>
+							<includes>
+								<include>**/Parallel*.java</include>
+							</includes>
+							<excludes>
+								<exclude>**/Abstract*.java</exclude>
+							</excludes>
+							<junitArtifactName>junit:junit</junitArtifactName>
+							<argLine>-Xmx512m</argLine>
+							<testFailureIgnore>true</testFailureIgnore>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- End - execute  test runners -->
+		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.exe</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.github.temyers
+										</groupId>
+										<artifactId>
+											cucumber-jvm-parallel-plugin
+										</artifactId>
+										<versionRange>
+											[1.0.1,)
+										</versionRange>
+										<goals>
+											<goal>generateRunners</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+
+		<dependency> <!--  For READ JSON Utils -->
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.8.5</version>
+		</dependency>
+
+		<dependency> <!--  For READ/WRITE EXCEL Utils -->
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+	 
+		<dependency> <!--  For READ/WRITE EXCEL Utils -->
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>xml-apis</artifactId>
+					<groupId>xml-apis</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency> 
+		<groupId>com.jcraft</groupId> 
+		<artifactId>jsch</artifactId> 
+	    <version>0.1.54</version>
+		 </dependency>
+		<dependency> <!--  For TESTNG DB Utils -->
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testNG.version}</version>
+			<!-- scope>test</scope> -->
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+		<dependency><!--  For APACHE COMMONS Utils -->
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>${collections4.version}</version>
+		</dependency>
+	
+		<!--https://mvnrepository.com/artifact/log4j/log4j -->
+		<!--<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>-->
+		
+		
+		<!-- https://mvnrepository.com/artifact/org.json/json -->		
+		<dependency><!-- Dependencies needed for ReadJSON -->
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180130</version>
+		</dependency>
+	
+		<dependency><!--  For DB Utils -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.jdbc.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency><!--  For EXTENT REPORTS Utils -->
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.1.5</version>
+		</dependency>
+
+		<!--
+		<dependency>
+			<groupId>com.oracle.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>${ojdbc.version}</version>
+		</dependency>
+		-->
+			
+		<dependency> <!--  For JIRA Utils -->
+             <groupId>net.rcarz</groupId>
+             <artifactId>jira-client</artifactId>
+             <version>0.5</version>
+		</dependency>
+		
+		<dependency> <!--  For JIRA Utils -->
+    		<groupId>org.glassfish.jersey.core</groupId>
+     		<artifactId>jersey-client</artifactId>
+     		<version>2.8</version>
+ 		</dependency>
+ 		
+ 		<dependency> <!--  For JIRA Utils -->
+    		<groupId>org.glassfish.jersey.media</groupId>
+    		<artifactId>jersey-media-json-jackson</artifactId>
+   		<version>2.8</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.github.bogdanlivadariu.integrations/zapi -->		
+		<dependency> <!--  For JIRA ZAPI MODULE Utils -->
+		    <groupId>com.github.bogdanlivadariu.integrations</groupId>
+		    <artifactId>zapi</artifactId>
+		    <version>0.0.5</version>
+		</dependency>
+		
+		<dependency><!--  For JSON/PARSIN/EXTENT REPORTS Utils -->
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-json</artifactId>
+			<version>${groovyJson.version}</version>
+		</dependency>
+
+		<dependency> <!--  For JSON Utils -->
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>${json.simple.version}</version>
+		</dependency>
+		
+		<dependency> <!--  For PDF READ/WRITE Utils -->
+	        <groupId>org.apache.pdfbox</groupId>
+	        <artifactId>pdfbox</artifactId>
+	        <version>2.0.6</version>
+		</dependency>
+		
+		<dependency> <!--  For PDF CREATION Utils -->
+		    <groupId>com.itextpdf</groupId>
+		    <artifactId>itextpdf</artifactId>
+		    <version>5.5.13</version>
+		</dependency>
+		
+	    <dependency> <!--  For CSV Utils -->
+		    <groupId>com.opencsv</groupId>
+		    <artifactId>opencsv</artifactId>
+		    <version>4.1</version>
+	    </dependency>
+	    <dependency> <!--  For Read System prop file -->
+		  <groupId>com.google.guava</groupId>
+		    <artifactId>guava</artifactId>
+		    <version>23.0</version>
+		</dependency>
+	    <dependency> <!--  For IMAGE Utils -->
+		  <groupId>org.apache.pdfbox</groupId>
+		  <artifactId>jbig2-imageio</artifactId>
+		  <version>3.0.2</version>
+		</dependency>
+				
+		<dependency> <!--  For OCR Utils -->
+		    <groupId>net.sourceforge.tess4j</groupId>
+		    <artifactId>tess4j</artifactId>
+		    <version>4.4.1</version>
+		</dependency>
+
+		
+		
+	</dependencies>
+	
+	<!--  TELUS REPO UPLOAD SETTINGS -->
+	<distributionManagement>
+	
+		<snapshotRepository>
+			<id>telus-mavenrepository</id>
+			<url>http://mavenrepository.tsl.telus.com/nexus/content/repositories/telus-m3-snapshots</url>
+		</snapshotRepository>
+		
+	</distributionManagement>
+	
+</project>

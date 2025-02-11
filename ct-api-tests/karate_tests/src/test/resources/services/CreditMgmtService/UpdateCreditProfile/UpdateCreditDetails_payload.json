@@ -1,0 +1,34 @@
+{
+  "creditProfile": [
+    {
+      "id": #(profileId),
+      "telusCharacteristic": {
+        "bureauDecisionCode": #(bureauDCUpdate),
+        "clpCreditLimit": #(creditLimitUpdate),
+        "creditAssessmentId": 54227,
+        "creditClassCd": #(creditClsUpdate),
+        "creditClassDate": "2018-01-02T16:51:22.620Z",
+        "creditDecisionCd": #(creditDCdUpdate),
+        "creditDecisionDate": "2018-01-09T16:51:22.620Z",
+        "creditProgramName": #(creditPrgNMUpdate),
+        "primaryCreditScoreCd": #(creditSCRUpdate),
+        "primaryCreditScoreTypeCd": "CUSTOM",
+        "riskLevelDecisionCd": #(riskLevelDCdUpdate),
+        "riskLevelDt": "2018-01-01T16:51:22.620Z",
+        "riskLevelNumber": #(riskLNumUpdate),
+        
+      }
+    }
+  ],
+  "telusAuditCharacteristic": {
+    "userId": "ANSHIKA",
+    "originatorApplicationId": "19071",
+    "channelOrganizationId": ""
+  }
+}
+
+
+
+
+
+

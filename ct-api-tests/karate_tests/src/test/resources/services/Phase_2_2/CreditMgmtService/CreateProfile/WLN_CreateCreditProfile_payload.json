@@ -1,0 +1,162 @@
+{ 
+    "validFor": {
+        "endDateTime": null,
+        "startDateTime": "2021-01-09T16:51:22.620Z"
+    },
+   "creditClassCd": #(creditCls),
+    "primaryCreditScoreCd": #(creditSCR),
+    "primaryCreditScoreTypeCd": "CUSTOM",
+    "creditRiskLevelNum":#(creditRiskLevelNum),
+    "creditRiskLevelDecisionCd":#(creditRiskLevelDecisionCd),
+    "creditDecisionCd": #(creditDecisionCd),
+    "creditDecisionTs": "1984-06-29T15:41:48.113Z",
+    "creditProgramName": "",
+    "clpCreditLimitAmt": 210.00,
+    "clpRatePlanAmt": 170.00,
+    "clpContractTermNum": 24,
+    "creditClassTs": "2022-03-15T15:07:01.638Z",
+     "creditRiskLevelTs": "2021-06-29T15:41:48.113Z",
+     
+    "channel": {
+        "originatorAppId": #(originatorAppId),
+        "channelOrgId": #(channelOrgId),
+        "@type": "Channel",
+        "userId": #(userId)
+    },
+    "warnings": [
+        {
+             "warningCategoryCd": #(WarngCd),
+            "warningCd":  #(warCd),
+            "warningDetectionTs":#(warningDetectionTs),
+            "warningStatusCd": #(warStsCd),
+            "resolvedPermanentlyInd": false,
+            "approvalTs": "",
+            "warningTypeCd": "SAFESCAN",
+            "warningItemTypeCd": "DL",
+            "approvalCreditAssessmentId": "",
+            "validFor": {
+                "endDateTime": "",
+                "startDateTime": "2021-12-15T20:49:01.839Z"
+            }
+        }
+    ],
+    "relatedParty": [
+        {
+             "id": #(Id),
+            "@type": "Customer",
+            "role":  #(role1),
+            "href": "https://host:port/tmf-api/customerManagement/v4/customer/110005",
+            "engagedParty": {
+                "@referredType": "Individual",
+                "role": "Customer",
+                "birthDate": #(DOB),
+                "contactMedium": [
+                    {
+                        "characteristic": {
+                           "contactType": #(contactType),
+                            "city": #(city),
+                            "country": #(Country),
+                            "postCode": #(PostCode),
+                            "stateOrProvince": #(province),
+                            "street1": #(street1),
+                            "street2": #(street2),
+                        },
+                        "mediumType":  #(medTyp),
+                        "preferred": "true",
+                        "validFor": {
+                            "endDateTime": null,
+                            "startDateTime": "2021-01-09T17:51:22.620Z"
+                        }
+                    }
+                ],
+                "individualIdentification": [
+                    {
+                         "identificationId": #(IdNum),
+                        "identificationType": #(idTyp),
+                        "issuingAuthority": #(province),
+                        "issuingDate": "2020-01-09T16:51:22.620Z",
+                        "validFor": {
+                            "endDateTime": "",
+                            "startDateTime": ""
+                        },
+                        "@baseType": "IndividualIdentification",
+                        "@type": "TelusIndividualIdentification",
+                        "telusCharacteristic": {
+                            "provinceCd": #(province),
+                        }
+                    }
+                ],
+                "characteristic": [
+                   {
+                        "name": #(name1),
+                        "value": #(value1),
+                        "valueType": "String"
+                    },
+                    {
+                        "name": #(name2),
+                        "value": #(value2),
+                        "valueType": "String"
+                    },
+                    {
+                        "name": #(name3),
+                        "value": #(value3),
+                        "valueType": "String"
+                    }
+                ]
+            }
+        }
+    ],
+    "riskLevelRiskAssessment": {
+        "id": "565656",
+        "href": "https://host:port/tmf-api/RiskAssessmentManagement/v1/RiskAssessment/565656",
+        "@referredType": #(ReffTyp),
+    },
+     "bureauDecisionCd": #(bureauDC),
+    "applicationProvinceCd":  #(province),
+    "creditCheckConsentCd": "NA",
+    "lineOfBusiness": "WIRELINE",
+    "attachments": [
+        {
+            "id": "888",
+            "@referredType": "CreditBureauReport",
+            "href": "https://host:port/tmf-api/CreditBureauManagement/v1/CreditBureauReport/888",
+            "attachmentType": "Bureau Report",
+            "mimeType": "application/text",
+            "contentSourceCode": "TRANSUNION",
+            "size": {
+                "amount": 200.24,
+                "units": "KB"
+            },
+            "content": "VVNFUiBSRUYuIDM4NTY2NTc4ICAgICAgICAgIFRISVMgRk9STSBQUk9EVUNFRCBCWSBFUVVJRkFYIEMuSS5TLiAgICAgICBQICAgMSAgICANCiBNVUxUSVBMRSBGSUxFUyBJTkRJQ0FUT1I6IDAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQogRVFVSUZBWCBBTkQgQUZGSUxJQVRFIEJVUkVBVVMtUkVGRVIgQ09OU1VNRVIgSU5RVUlSSUVTIFRPIDEtODAwLTQ2NS03MTY2ICAgICAgIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICAgICAgICAgICBOTyBBTEVSVCBJTkRJQ0FUT1IgT04gRklMRSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQogICBGTiAwMC0wMDA4MDk1LTAwLTAxOCBVTiA0MjEzNTM2NDYxICAgMTIvMTMvMjEgICAgICAgICAgICAgICAgICBQRzAxICAgICAgICAgIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCkdFTkVSSUMgQVRUUklCVVRFUyAgICgxMDI5NC1BLTEpICAgICAgICAgICAgU0NPUkU6ICAgICAgMCAgICAgICAgICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioNCiBTQUZFU0NBTiBXQVJOSU5HOiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQogIDEtIE5PIEZSQVVEIElORElDQVRJT04gV0FTIERFVEVDVEVEICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQogICBTQ09SRSBDT01QTEVURSAxLjAgICAgU0NPUkU6ICAgNjAzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KICAgVE9PIE1BTlkgVEVMQ08gSU5RVUlSSUVTICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCiAgIFRPTyBGRVcgT1BFTiBUUkFERVMgSU4gTkVJR0hCT1VSSE9PRCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQogICBUT08gTUFOWSBJTlFVSVJJRVMgSU4gVEhFIExBU1QgMyBNT05USFMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KICAgVEhJTiBGSUxFIEFVR01FTlRFRCBXSVRIIEFHR1JFR0FURUQgQ1JFRElUIERBVEEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCipUWkNEQUhDRE1TRUNPTkQsQlRDREFIQ0RNU0VDT05EICBTSU5DRSAwNy8xOC8xOSAgRkFEIDEwLzA2LzIxICAgICAgICAgICAgICAgICAgDQogMzAwLENPTlNJTElVTSBQTCwsTk9SVEggWU9SSyxPTiBNM0MxWjEsU1RTIFJQVEQgMDcvMTkgICAgICAgICAgICAgICAgICAgICAgICAgIA0KIEJEUy0wMS8wMS83OCwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCipJTlFTLVNVQkpFQ1QgU0hPV1MgIDUgSU5RVUlSSUVTIFNJTkNFIDA5LzIxICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQoxMC8wNi8yMSA0NTFVVDQwMyAgIFRFTFVTIENPTU1VTklDQSAgICAgICAoNDE2KSAyNzktNzg0NCAgICAgICAgICAgICAgICAgICAgICAgIA0KMTAvMDUvMjEgNDUxVVQ0MDMgICBURUxVUyBDT01NVU5JQ0EgICAgICAgKDQxNikgMjc5LTc4NDQgICAgICAgICAgICAgICAgICAgICAgICANCjEwLzA0LzIxIDQ1MVVUNDAzICAgVEVMVVMgQ09NTVVOSUNBICAgICAgICg0MTYpIDI3OS03ODQ0ICAgICAgICAgICAgICAgICAgICAgICAgDQowOS8xNS8yMSA0NTFVVDQwMyAgIFRFTFVTIENPTU1VTklDQSAgICAgICAoNDE2KSAyNzktNzg0NCAgICAgICAgICAgICAgICAgICAgICAgIA0KMDkvMDcvMjEgNDUxVVQ0MDMgICBURUxVUyBDT01NVU5JQ0EgICAgICAgKDQxNikgMjc5LTc4NDQgICAgICAgICAgICAgICAgICAgICAgICANCjA3LzI3LzE5IDQ1MVVUMTcxICAgVEVMVVMgQ09NTVVOSUNBVElPTlMgICg0MTYpIDI3OS03ODQ0ICAgICAgICAgICAgICAgICAgICAgICAgDQowNy8yMy8xOSA0NTFVVDE3MSAgIFRFTFVTIENPTU1VTklDQVRJT05TICAoNDE2KSAyNzktNzg0NCAgICAgICAgICAgICAgICAgICAgICAgIA0KMDcvMTgvMTkgNDUxVVQxNzEgICBURUxVUyBDT01NVU5JQ0FUSU9OUyAgKDQxNikgMjc5LTc4NDQgICAgICAgICAgICAgICAgICAgICAgICANCiAjIElOUVMgLSA4ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQpTVU1NQVJZICBOTy1QUi9PSSxGQi1OTywgVE9UQUwtMCxIQyQwLiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCiYgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQpFTkQgT0YgUkVQT1JUICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA=="
+        }
+    ],
+    "creditCheckConsentCxd": "NA",
+    "characteristic": [
+        {
+            "name": "BYPASS_MATCH_IND",
+            "value": "N",
+            "valueType": "String"
+        },
+        {
+            "name": "COMMENT_TXT",
+            "value": "some comment xxxxxx",
+            "valueType": "String"
+        },
+        {
+            "name": "CPROFL_FORMAT_CD",
+            "value": "O",
+            "valueType": "String"
+        }
+    ],
+    "boltonInd": true,
+    "productCategoryQualification": [
+       {
+            "categoryCd":#(categoryCd1),
+            "qualified": true
+        },
+        {
+            "categoryCd": #(categoryCd2),
+            "qualified": true
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "eventId": #(eventId),
+    "eventType": "assessmentCreate",
+    "eventTime": "2021-03-25T14:52:29.298Z",
+    "description": "Publishing Credit Asssessment Data",
+    "event": [
+        {
+            "customerId": #(Id), 
+            "creditProfileId": #(credit_profile_id),
+            "creditAssessmentId": 595098,
+            "creditAssessmentTimestamp": "2021-03-25T14:52:28.675Z",
+            "creditAssessmentTypeCd": "FULL_ASSESSMENT",
+            "creditAssessmentSubTypeCd": "CREDIT_CHECK",
+            "creditAssessmentResultCd": "APPROVE",
+            "assessmentMessageCd": "KMSG002",
+            "createdBy": "AA00",
+            "createdTimestamp": "2021-03-25T14:52:29.298Z",
+            "originatorAppId": "12373",
+            "channelOrgId": "00020"
+        }
+    ]
+}

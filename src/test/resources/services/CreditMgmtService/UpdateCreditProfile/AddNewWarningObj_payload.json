@@ -1,0 +1,38 @@
+{
+	"creditProfile": [
+		{
+			"id": #(profileId),
+			"telusCharacteristic": {
+				"warningHistoryList": [
+          {
+          "warningHistoryId": "",
+            "approvalDate": "2018-01-09T16:51:22.620Z",
+            "creditAssessmentId": 24197,
+            "memoTypeCd": "HCDF",
+            "resolvedPermanentlyInd": "true",
+            "warningCategoryCd": #(WarngCatCdNew),
+            "warningCd": #(warCdNew),
+            "warningDetectionDate": #(WdateNew),
+            "warningHistoryLegacyId": 5936,
+            "warningItemTypeCd": #(warningItemTypeCdNew),
+            "warningStatusCd": #(warStsCdNew),
+            "warningTypeCd": #(warningTypeCdNew),
+            "validFor": {
+              "endDateTime": "2029-01-01T16:51:22.620Z",
+              "startDateTime": "2021-01-01T16:51:22.620Z"
+            }
+          }
+        ]
+			},
+			"@baseType": "CreditProfile",
+			"@type": "TelusCreditProfile"
+		}
+	],
+	"@baseType": "Customer",
+	"@type": "TelusCustomer",
+	"telusAuditCharacteristic": {
+		"userId": "ANSHIKA",
+		"originatorApplicationId": "19071",
+		"channelOrganizationId": ""
+	}
+}

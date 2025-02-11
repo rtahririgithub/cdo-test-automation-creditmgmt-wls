@@ -1,0 +1,66 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bes="http://xmlschema.tmi.telus.com/srv/CMO/OrderMgmt/BestBuyWirelessOrderManagementServiceRequestResponse_v9">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <bes:createOrder>
+         <bes:operationHeader>
+				<bes:orderTypeCd>#(orderTypeCd)</bes:orderTypeCd>
+				<bes:channelOrganizationCode>#(channelOrganizationCode)</bes:channelOrganizationCode>
+				<bes:bestBuyStoreId>#(bestBuyStoreId)</bes:bestBuyStoreId>
+				<bes:bestBuySalesRepId>#(bestBuySalesRepId)</bes:bestBuySalesRepId>
+				<bes:beastSystemTransactionId>#(beastSystemTransactionId)</bes:beastSystemTransactionId>
+				<bes:beastSystemTimestamp>#(beastSystemTimestamp)</bes:beastSystemTimestamp>
+				<bes:brandCd>#(brandCd)</bes:brandCd>
+		</bes:operationHeader>
+        <bes:accountId>#(ban)</bes:accountId>
+         
+         <bes:subsToBeActivatedList>
+            <bes:phoneNumber>#(phoneNumber)</bes:phoneNumber>
+            <bes:provinceCode>#(provinceCode)</bes:provinceCode>
+            <bes:equipment>
+               <bes:simSerialNumber>#(simSerialNumber)</bes:simSerialNumber>
+               <bes:handsetSerialNumber>##(handsetSerialNumber)</bes:handsetSerialNumber>
+            </bes:equipment>
+            <bes:deviceTypeCd>P</bes:deviceTypeCd>
+            <bes:selectedPricePlanCode>#(pricePlanCode)</bes:selectedPricePlanCode>
+            <bes:selectedContractTermNum>#(term)</bes:selectedContractTermNum>
+			<bes:selectedServiceCodeList>
+               <bes:serviceCode>#(SOC1)</bes:serviceCode>
+               <bes:serviceActionCode>ADD</bes:serviceActionCode>
+            </bes:selectedServiceCodeList>
+			<bes:selectedOfferId>#(selectedOfferId)</bes:selectedOfferId>
+			<bes:offerGetPhoneIndicator>#(offerGetPhoneIndicator)</bes:offerGetPhoneIndicator>
+            <bes:firstName>#(firstName)</bes:firstName>
+            <bes:lastName>#(lastName)</bes:lastName>
+            <bes:birthDate>#(birthDate)</bes:birthDate>
+            <bes:voicemailLanguageCd>#(Language_EN)</bes:voicemailLanguageCd>
+            <bes:contactLanguageCd>#(Language_EN)</bes:contactLanguageCd>
+            <bes:portInIndicator>false</bes:portInIndicator>
+            <bes:serviceSupportFeeList>
+               <bes:serviceSupportFeeCode>#(serviceSupportFeeCode)</bes:serviceSupportFeeCode>
+               <bes:serviceSupportFeeTypeCode>#(serviceSupportFeeTypeCode)</bes:serviceSupportFeeTypeCode>
+            </bes:serviceSupportFeeList>
+            <bes:dataUnlockPrivilegeInd>#(dataUnlockPrivilegeInd)</bes:dataUnlockPrivilegeInd>
+            <bes:selectedCreditProgram>
+                  <!-- <bes:creditLimitProgramInd>#(creditLimitProgramInd)</bes:creditLimitProgramInd> -->
+                  <bes:creditAssessmentId>#(creditAssessmentId)</bes:creditAssessmentId>
+                  <!-- <bes:noDeviceProgramInd>#(noDeviceProgramInd)</bes:noDeviceProgramInd> -->
+			      <bes:securityDepositProgramInd>#(securityDepositAvailableIndicator)</bes:securityDepositProgramInd>
+             </bes:selectedCreditProgram>
+            <bes:eBillRegistration>
+               <bes:billNotificationMethodCd>BOTH</bes:billNotificationMethodCd>
+               <bes:billNotificationEmailAddressTxt>#(email)</bes:billNotificationEmailAddressTxt>
+               <bes:billNotificationSmsNum>#(phoneNumber)</bes:billNotificationSmsNum>
+            </bes:eBillRegistration>
+            <bes:promotionList>
+				<bes:promotionIdentifier>
+					<bes:promotionId>#(promotionId)</bes:promotionId>
+					<bes:perspectiveDate>#(promotionPerspectiveDate)
+					</bes:perspectiveDate>
+				</bes:promotionIdentifier>
+			</bes:promotionList>
+         </bes:subsToBeActivatedList>
+         <bes:termsAndConditionsConsentInd>#(termsAndConditionsConsentInd)</bes:termsAndConditionsConsentInd>
+         <bes:setupFeeConsentInd>#(setupFeeConsentInd)</bes:setupFeeConsentInd>
+      </bes:createOrder>
+   </soapenv:Body>
+</soapenv:Envelope>

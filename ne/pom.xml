@@ -1,0 +1,159 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+  <groupId>telus.bt.automation</groupId>
+    <artifactId>creditManagement</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.version>3.6.0</maven.compiler.version>
+		<maven.surefire.version>2.19.1</maven.surefire.version>
+    </properties>
+<!--	
+<repositories>
+    <repository>
+      <id>artifact-registry</id>
+      <url>artifactregistry://northamerica-northeast1-maven.pkg.dev/cio-gke-devops-e4993356/telus-maven</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories> -->
+	
+    <dependencies>
+        <!-- <dependency>
+		   <groupId>org.apache.maven.surefire</groupId>
+		   <artifactId>surefire-junit4</artifactId>
+		   <version>${maven.surefire.version}</version>
+	 	 	<scope>test</scope>			   
+		</dependency> -->
+		
+		<dependency>
+			<groupId>telus.bt.automation</groupId>
+			<artifactId>telus-api-test-core</artifactId>
+			<version>4.1-SNAPSHOT</version>
+			
+			<!-- <version>3.7-SNAPSHOT</version>
+			 <scope>test</scope> -->
+			 
+		</dependency>
+		
+		<!-- <dependency>
+			<groupId>telus.frameworks.enterprise.frameworks-share</groupId>
+			<artifactId>frameworks-crypto</artifactId>
+			<version>7.3.0</version>
+		</dependency>
+		 -->
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.2.18</version>
+    
+</dependency>
+
+
+
+		
+    </dependencies>
+
+    <build>
+   <!-- 
+      <extensions>
+      <extension>
+        <groupId>com.google.cloud.artifactregistry</groupId>
+        <artifactId>artifactregistry-maven-wagon</artifactId>
+        <version>2.1.4</version>
+      </extension>
+  </extensions> -->
+    		<!--
+    		=================================================================================
+    		NOTE: Uncomment this portion if .feature files are to be stored in src/test/java
+    	  rather than src/test/resources
+    	  =================================================================================
+    		 -->
+
+        <!-- testResources>
+            <testResource>
+                <directory>src/test/java</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </testResource>
+        </testResources-->
+
+        <plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.version}</version>
+				<configuration>
+					<includes>
+						<include>
+							com/telus/api/test/runners/AppParallelRunner.java
+						</include>
+					</includes>
+					<argLine>-Dfile.encoding=UTF-8</argLine>
+					<systemPropertyVariables>
+						<karate.env>${karate.env.value}</karate.env>
+            	<threads>${threads.value}</threads>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerArgument>-Werror</compilerArgument>
+                </configuration>
+            </plugin>
+        </plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.exe</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<excludes>
+					<exclude>**/*.properties</exclude>
+				</excludes>
+			</resource>
+		</resources>
+    </build>
+    <reporting>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-project-info-reports-plugin</artifactId>
+      <version>2.7</version>
+      <reportSets>
+        <reportSet>
+          <reports>
+            <report>project-team</report>
+          </reports>
+        </reportSet>
+      </reportSets>
+    </plugin>
+  </plugins>
+</reporting>
+
+</project>

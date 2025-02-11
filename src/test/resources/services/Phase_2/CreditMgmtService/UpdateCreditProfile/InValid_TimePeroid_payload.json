@@ -1,0 +1,33 @@
+
+{
+    "id": #(credit_profile_id),
+    "validFor": {
+        "endDateTime": #(endDateTime),
+        "startDateTime": "2021-01-09T16:51:22.620Z"
+    },
+    
+     "creditClassCd": #(creditClsUpdate),
+    "primaryCreditScoreCd": #(creditSCRUpdate),
+  
+    "creditRiskLevelNum": #(riskLNumUpdate),
+    "creditRiskLevelDecisionCd": #(riskLevelDCdUpdate),
+    "creditDecisionCd": #(creditDCdUpdate),
+    "creditDecisionTs": "2020-06-29T15:41:48.113Z",
+    "clpCreditLimitAmt": #(creditLimitUpdate),
+    "creditProgramName": #(creditPrgNMUpdate),
+    "bureauDecisionCd":  #(bureauDCUpdate),
+    "applicationProvinceCd" : #(provinceUpdate),
+    
+    
+   
+     "channel": {
+    "id": "565656",
+    "href": "https://host:port/tmf-api/ChannelManagement/v1/channel/565656",
+    "@schemaLocation": "https://AqvyAIdAlbPiJOjaqhii.xzFQOZhdcWG,UX6GVj3bZEHcT05pDgGR63FT",
+    "@baseType": "Channel",
+    "@type": "TelusChannel",
+    "originatorApplicationId": "817265",
+    "channelOrganizationId": "04418",
+    "userId": "t9898989"
+  }
+}

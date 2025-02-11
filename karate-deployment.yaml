@@ -1,0 +1,63 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ${PROJ_NAME}
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      name: api-testing-job
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
+        oneagent.dynatrace.com/inject: "false"
+        data-ingest.dynatrace.com/injected: "false"
+        dynakube.dynatrace.com/injected: "false"
+      labels:
+        egress: "true"
+    spec:
+      securityContext:
+        runAsUser: 1111
+        runAsGroup: 1111
+        fsGroup: 2000
+        supplementalGroups: 
+          - 1111
+      containers:
+        - name: ${PROJ_NAME} 
+          command: ["/bin/sh", "-c"]
+          args:  
+            - echo "API TEST CASES PATH IS ${API_TEST_CASES_PATH}";
+              echo "API TEST CMD IS ${API_TESTS_CMD}";
+              cd ${API_TEST_CASES_PATH};
+              echo Path is `pwd`;
+              echo "pwd is----done";
+              ${API_TESTS_CMD};
+              echo done;        
+          volumeMounts:
+          # for creating .m2 folder
+          # - name: docker-volume
+          #   mountPath: /home/docker
+          - name: karate-volume
+            mountPath: /tmp
+            
+          image: ${GAR_IMAGE}
+          imagePullPolicy: Always
+          
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+             drop: ["NET_RAW"]
+            runAsGroup: 1111
+            runAsUser: 1111
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "1"
+            limits:
+              memory: "4Gi"
+              cpu: "2"    
+      restartPolicy: Never
+      volumes:
+      # - name: docker-volume
+      #   emptyDir: {}
+      - name: karate-volume
+        emptyDir: {}

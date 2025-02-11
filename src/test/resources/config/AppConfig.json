@@ -1,0 +1,18 @@
+{
+ PATH_CONFIG: 'classpath:config/',
+	PATH_TESTS:'classpath:tests/Phase_2/',
+	PATH_UTILS_TS: 'classpath:utils/testSpecs/',
+	PATH_FILES: 'classpath:files/',
+	PATH_QUERIES: 'classpath:queries/Phase_2/',
+	PATH_SERVICES: 'classpath:services/Phase_2/CreditMgmtService/',
+	PATH_SERVICES_CREATECPROFILE: 'classpath:services/Phase_2/CreditMgmtService/CreateProfile/',
+	PATH_SERVICES_UPDATECPROFILE: 'classpath:services/Phase_2/CreditMgmtService/UpdateCreditProfile/',
+	PATH_TMF: 'classpath:services/Phase_2/CreditMgmtService/TMFService/',
+	SERVICE_VERSION: 'v2',
+	
+	PATH_SERVICES_PH2_2: 'classpath:services/Phase_2_2/CreditMgmtService/'
+	
+	
+	
+}
+

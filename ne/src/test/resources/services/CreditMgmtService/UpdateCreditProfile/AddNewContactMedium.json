@@ -1,0 +1,35 @@
+{
+    "engagedParty": {
+        "@referredType": "Individual",
+        "contactMedium": [
+            {
+                "id": null,
+                "mediumType": #(MediumTypNew),
+                "preferred": true,
+                "characteristic": {
+                    "city": #(cityNew),
+                    "contactType": #(cntctTypNew),
+                    "country": #(countryNew),
+                    "postCode": #(postCdNew),
+                    "stateOrProvince": #(provinceNew),
+                    "street1": #(street1New),
+                    "street2": "Unit 23",
+                    "street3": null,
+                    "street4": null,
+                    "street5": null
+                },
+                "validFor": {
+                    "endDateTime": "2029-01-09T17:51:22.620Z",
+                    "startDateTime": "2021-01-09T17:51:22.620Z"
+                }
+            }
+        ]
+    },
+    "@baseType": "Customer",
+    "@type": "TelusCustomer",
+	"telusAuditCharacteristic": {
+		"userId": "ANSHIKA",
+		"originatorApplicationId": "19071",
+		"channelOrganizationId": ""
+	}
+}

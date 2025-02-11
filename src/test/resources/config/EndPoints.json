@@ -1,0 +1,35 @@
+{
+	"IT01":
+	{ 
+		"ENDPOINT_URL": "https://apigw-private-yul-np-001.tsl.telus.com/",
+        "ENDPOINT_CLIENT_CREDENTIAL": "https://apigw-st.tsl.telus.com"
+	},
+	"IT02":
+	{
+		"ENDPOINT_URL": "https://apigw-private-yul-np-001.tsl.telus.com/",
+        "ENDPOINT_CLIENT_CREDENTIAL": "https://apigw-st.tsl.telus.com"
+	},
+	"IT03":
+	{
+		"ENDPOINT_URL": "https://apigw-private-yul-np-001.tsl.telus.com/",
+        "ENDPOINT_CLIENT_CREDENTIAL": "https://apigw-st.tsl.telus.com"
+		},
+	
+	"IT04": 
+	{
+		"ENDPOINT_URL": "https://apigw-private-yul-np-001.tsl.telus.com/",
+        "ENDPOINT_CLIENT_CREDENTIAL": "https://apigw-st.tsl.telus.com"
+		},
+	
+	"DV": 
+	{
+		"ENDPOINT_URL": "https://apigw-private-yul-np-001.tsl.telus.com/",
+        "ENDPOINT_CLIENT_CREDENTIAL": "https://apigw-st.tsl.telus.com"
+			},
+	
+	"AUTO": 
+	{
+		"ENDPOINT_URL": "https://apigw-private-yul-np-001.tsl.telus.com/",
+        "ENDPOINT_CLIENT_CREDENTIAL": "https://apigw-st.tsl.telus.com"
+	}
+}

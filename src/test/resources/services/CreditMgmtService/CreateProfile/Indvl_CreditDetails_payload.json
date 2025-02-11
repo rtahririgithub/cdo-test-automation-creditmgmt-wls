@@ -1,0 +1,121 @@
+{
+  "creditProfile": [
+    {
+      "creditProfileDate": "2021-01-15T16:51:22.620Z",
+      "creditRiskRating": #(riskRatng),
+      "creditScore": #(creditSCR),
+      "validFor": {
+        "endDateTime": "2026-01-09T16:51:22.620Z",
+        "startDateTime": "2021-01-09T16:51:22.620Z"
+      },
+      "telusCharacteristic": {
+        "bureauDecisionCode": #(bureauDC),
+        "clpCreditLimit": #(clpCLimit),
+        "creditAssessmentId": 54227,
+        "creditClassCd": #(creditCls),
+        "creditClassDate": "2018-01-02T16:51:22.620Z",
+        "creditDecisionCd": #(creditDecisionCd),
+        "creditDecisionDate": "2018-01-09T16:51:22.620Z",
+        "creditProgramName": #(creditPrgNM),
+        "primaryCreditScoreCd": #(creditSCR),
+        "primaryCreditScoreTypeCd": "CUSTOM",
+        "riskLevelDecisionCd": #(riskLevelDecisionCd),
+        "riskLevelDt": "2018-01-01T16:51:22.620Z",
+        "riskLevelNumber": #(riskLNumber),
+        "warningHistoryList": [
+          {
+            "approvalDate": "2018-01-09T16:51:22.620Z",
+            "creditAssessmentId": 24197,
+            "memoTypeCd": "HCDF",
+            "resolvedPermanentlyInd": "true",
+            "validFor": {
+              "endDateTime": "2029-01-01T16:51:22.620Z",
+              "startDateTime": "2021-01-01T16:51:22.620Z"
+            },
+            "warningCategoryCd": #(WarngCatCd),
+            "warningCd": #(warCd),
+            "warningDetectionDate": #(Wdate),
+            "warningHistoryLegacyId": 5936,
+            "warningItemTypeCd": #(warningItemTypeCd),
+            "warningStatusCd": #(warStsCd),
+            "warningTypeCd": #(warningTypeCd)
+          }
+        ]
+      }
+    }
+  ],
+  "engagedParty": {
+    "@referredType": #(ReffTyp),
+    "birthDate": #(DOB),
+    "contactMedium": [{
+      "characteristic": {
+        "contactType": "home",
+        "city": #(city),
+        "country": #(Country),
+        "postCode": "1A2 3B4",
+        "stateOrProvince": #(province),
+        "street1": "1 Center Street",
+        "street2": "Unit 23"
+      },
+      "mediumType": #(medTyp),
+      "preferred" : "true",
+      "validFor": {
+          "endDateTime": "2029-01-09T17:51:22.620Z",
+          "startDateTime": "2021-01-09T17:51:22.620Z"
+        }
+    }],
+    "individualIdentification": [
+      {
+        "identificationId": #(IdNum),
+        "identificationType": #(idTyp),
+        "issuingAuthority": #(province),
+        "issuingDate": "2020-01-09T16:51:22.620Z",
+        "telusCharacteristic": {
+          "provinceCd": #(province)
+        },
+        "validFor": {
+          "endDateTime": "2022-01-10T00:00:00.000Z",
+          "startDateTime": "2020-01-09T00:00:00.000Z"
+        }
+      }
+    ]
+  },
+  "telusAuditCharacteristic": {
+    "userId": "ANSHIKA",
+    "originatorApplicationId": "19071",
+    "channelOrganizationId": ""
+  }
+}
+
+
+
+
+dName": "CreditProfile_ChangeEvent_payload.json"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

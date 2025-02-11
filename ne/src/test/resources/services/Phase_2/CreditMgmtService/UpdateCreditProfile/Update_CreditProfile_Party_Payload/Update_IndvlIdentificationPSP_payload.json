@@ -1,0 +1,48 @@
+{
+    "id": #(credit_profile_id),
+    "@baseType": "CreditProfile",
+    "@type": "CreditProfile",
+    "validFor": {
+        "endDateTime": null,
+        "startDateTime": "2021-01-09T16:51:22.620Z"
+    },
+    "creditClassCd": #(creditClsUpdate),
+    "channel": {
+        "originatorAppId": 12373,
+        "channelOrgId": 124432,
+        "@type": "Channel",
+        "userId": 122324
+    },
+    "relatedParty": [
+        {
+            "id": #(Id),
+            "@type": "Customer",
+            "role": "customer",
+            "href": "https://host:port/tmf-api/customerManagement/v4/customer/110005",
+            "engagedParty": {
+                "@referredType": #(UpdateReffTyp),
+                "role": "Customer",
+               
+                "individualIdentification": [
+                    {
+                        "identificationId": #(UpdateIdNum),
+                        "identificationType": #(UpdateidTyp),
+                        "issuingAuthority": #(UpdateCountry),
+                        "issuingDate": #(issuingDateUpdate),
+                        "validFor": {
+                            "endDateTime": #(endDateTimeUpdate),
+                            "startDateTime": #(startDateTimeUpdate)
+                        },
+                        "@baseType": "IndividualIdentification",
+                        "@type": "TelusIndividualIdentification",
+                        "telusCharacteristic": {
+                            
+                             "countryCd": #(UpdateCountry)
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "applicationProvinceCd": #(province)
+}

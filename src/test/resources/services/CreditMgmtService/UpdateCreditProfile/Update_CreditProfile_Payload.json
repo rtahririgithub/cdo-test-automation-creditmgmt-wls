@@ -1,0 +1,22 @@
+{
+  "creditProfile": [
+    {
+      "id": #(profileId),
+      "creditProfileDate": "2021-01-15T16:51:22.620Z",
+      "creditRiskRating": #(riskRatingUpdate),
+      "creditScore": #(creditScoreUpdate),
+      "validFor": {
+        "endDateTime": #(endDateTimeUpdate),
+        "startDateTime": "2021-01-09T16:51:22.620Z"
+      },
+      
+      "@baseType": "CreditProfile",
+      "@type": "TelusCreditProfile"
+    }
+  ],
+  "telusAuditCharacteristic": {
+    "userId": "ANSHIKA",
+    "originatorApplicationId": "19071",
+    "channelOrganizationId": ""
+  }
+}

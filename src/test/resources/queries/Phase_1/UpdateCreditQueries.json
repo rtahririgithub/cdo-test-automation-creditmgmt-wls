@@ -1,0 +1,26 @@
+{
+	"Queries": {
+	
+		"CustomerQry" : '#("SELECT customer_id, party_id, updated_ts from pg_crproflps.crprofl.customer c where customer_id = \'"+ Id +"\'")',
+		"cprQry" : '#("Select credit_profile_id from pg_crproflps.crprofl.customer_credit_profile_rel ccpr where customer_id =  \'"+ Id +"\'")',
+		"crdProfile" : '#("Select * from pg_crproflps.crprofl.credit_profile cp where credit_profile_id = \'<credit_profile_id>\'")',
+		"PartyQry" : '#("SELECT * from pg_crproflps.crprofl.party p where party_id = \'<party_id>\'")',
+		"PartyIdentifctnQry" : '#("Select * from pg_crproflps.crprofl.party_identification pi2 where party_id = \'<party_id>\'")',
+		"IdentChar": '#("Select * from pg_crproflps.crprofl.identification_char ic where identificaton_id = \'<IdntID_id>\'")',
+		"IdentCharHash": '#("Select * from pg_crproflps.crprofl.identification_char_hash ich where identificaton_id =  \'<IdntID_id>\'")',
+		"CrdWar": '#("Select * from pg_crproflps.crprofl.credit_warning_history cwh where credit_profile_id = \'<credit_profile_id>\'")',
+		"IndvlQry": '#("Select * from pg_crproflps.crprofl.individual i where party_id = \'<party_id>\'")',
+		"parContMed": '#("Select * from pg_crproflps.crprofl.party_contact_medium pcm where party_id = \'<party_id>\'")',
+		"parContMedUpdate": '#("Select * from pg_crproflps.crprofl.party_contact_medium pcm where party_id = \'<party_id>\' AND contact_medium_id = \'"+ ContactMedId +"\' ORDER BY UPDATED_TS DESC")',
+		"parContMedUpdateNew": '#("Select * from pg_crproflps.crprofl.party_contact_medium pcm where party_id = \'<party_id>\' ORDER BY UPDATED_TS DESC")',
+		"ReadDBSyn": '#("Select * from pg_crproflps.crprofl.readdb_sync_status rss where customer_id = \'"+ Id +"\'")',
+		"OrgQry": '#("Select * from pg_crproflps.crprofl.organization o where party_id = \'<party_id>\'")',
+		"cprQryUpdate" : '#("Select credit_profile_id from pg_crproflps.crprofl.customer_credit_profile_rel ccpr where customer_id =  \'"+ Id +"\'ORDER BY UPDATED_ON_TS DESC")',
+		"CrdWarUpdate": '#("Select * from pg_crproflps.crprofl.credit_warning_history cwh where credit_profile_id = \'<credit_profile_id>\' ORDER BY UPDATED_ON_TS DESC")',
+		"PartyIdentifctnQryUpdate" : '#("Select * from pg_crproflps.crprofl.party_identification pi2 where party_id = \'<party_id>\' ORDER BY UPDATED_TS DESC")',
+		"IdentCharUpdate": '#("Select * from pg_crproflps.crprofl.identification_char ic where identificaton_id = \'<IdntID_id>\' ORDER BY UPDATED_TS DESC")',
+		"IdentCharHashUpdate": '#("Select * from pg_crproflps.crprofl.identification_char_hash ich where identificaton_id =  \'<IdntID_id>\' ORDER BY UPDATED_TS DESC")',
+		}
+	}
+	
+	

@@ -1,0 +1,90 @@
+{
+	"testDataRequirements": {
+		"testData": {
+			"Search_single_profile": {
+		     	"Id" : "",
+				"credit_profile_id": "",
+				"creditCls": "E",
+				"creditSCR":800,
+				"creditRiskLevelNum": 900,
+				"creditRiskLevelDecisionCd":"RL001",
+				"creditDecisionCd":"D001",
+				"ReffTyp": "Individual",
+				"medTyp":"postalAddress",
+				"bureauDC": "E29",
+				"province": "BC",
+				"WarngCd": "BCW",
+				"warCd": "FA0012",
+				"warStsCd": "UNVERIFIED",
+				"warningDetectionTs": "2022-01-10T16:51:22.620Z",
+				"role1":"Customer",
+	             "DOB": "1990-02-01",
+				"contactType":"home",
+				"city": "Burnaby",
+				 "Country": "CAN",
+				 "PostCode":"M2X M0M",
+				 "street1": "114 Center Street",
+                 "street2": "Unit 23",
+				 "IdNum": 0,
+				 "idTyp":"",
+				 "name1":"EMPLOYMENT_STATUS_CD",
+				 "value1":"E",
+				  "name2":"LEGAL_CARE_CD",
+				 "value2":"N",
+				  "name3":"RESIDENCY_CD",
+				 "value3":"O",
+				 "categoryCd1":"SL",
+				 "categoryCd2":"HS",
+				  "originatorAppId": 12373,
+                  "channelOrgId": 124432,
+                  "userId": 122324
+			 
+		},
+		
+		"Multiple_Identification_Type": {
+		     	"Id" : "",
+				"credit_profile_id": "",
+				"creditCls": "E",
+				"creditSCR":800,
+				"creditRiskLevelNum": 900,
+				"creditRiskLevelDecisionCd":"RL001",
+				"creditDecisionCd":"D001",
+				"ReffTyp": "Individual",
+				"medTyp":"postalAddress",
+				"bureauDC": "E29",
+				"province": "BC",
+				"WarngCd": "BCW",
+				"warCd": "FA0012",
+				"warStsCd": "UNVERIFIED",
+				"warningDetectionTs": "2022-01-10T16:51:22.620Z",
+				"role1":"Customer",
+	             "DOB": "1990-02-01",
+				"contactType":"home",
+				"city": "Burnaby",
+				 "Country": "CAN",
+				 "PostCode":"M2X M0M",
+				 "street1": "114 Center Street",
+                 "street2": "Unit 23",
+				 "IdNum": 0,
+				 "idTyp":"",
+				 "IdNum2": 0,
+				 "idTyp2":"",
+				 "name1":"EMPLOYMENT_STATUS_CD",
+				 "value1":"E",
+				  "name2":"LEGAL_CARE_CD",
+				 "value2":"N",
+				  "name3":"RESIDENCY_CD",
+				 "value3":"O",
+				 "categoryCd1":"SL",
+				 "categoryCd2":"HS",
+				  "originatorAppId": 12373,
+                  "channelOrgId": 124432,
+                  "userId": 122324
+                  
+                  
+			 
+		}
+		
+		}
+	}
+}

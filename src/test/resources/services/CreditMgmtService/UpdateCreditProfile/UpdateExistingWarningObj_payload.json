@@ -1,0 +1,27 @@
+{
+	"creditProfile": [
+		{
+			"id": #(profileId),
+			"telusCharacteristic": {
+				"warningHistoryList": [
+					{
+						"warningHistoryId": #(warHistoryId),
+						"warningCategoryCd": #(warCtgryCdUpdate),
+						"warningCd" : #(warCdUpdate),
+						"warningStatusCd": #(warStatsCdUpdate),
+						"warningDetectionDate": "2019-01-10T16:51:22.620Z"
+					}
+				]
+			},
+			"@baseType": "CreditProfile",
+			"@type": "TelusCreditProfile"
+		}
+	],
+	"@baseType": "Customer",
+	"@type": "TelusCustomer",
+	"telusAuditCharacteristic": {
+		"userId": "ANSHIKA",
+		"originatorApplicationId": "19071",
+		"channelOrganizationId": ""
+	}
+}

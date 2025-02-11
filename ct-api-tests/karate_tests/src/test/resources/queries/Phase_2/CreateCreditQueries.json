@@ -1,0 +1,36 @@
+{
+	"Queries": {
+	
+		"CustomerQry" : '#("SELECT * from crprofl.customer c where customer_id =  \'"+ CustomerID +"\'")',
+
+		
+		"crdProfile" : '#("Select * from crprofl.credit_profile cp where credit_profile_id = \'"+ credit_profile_id +"\'")',
+	
+		"CrdWar": '#("Select * from crprofl.credit_warning_history  cwh where credit_profile_id = \'"+ credit_profile_id +"\'")',
+		
+	    "cprQry" : '#("Select * from crprofl.customer_credit_profile_rel  ccpr where credit_profile_id = \'"+ credit_profile_id +"\'")',
+		
+		"CrdWarningLegacyIdQry": '#("Select * from crprofl.credit_warning_history  cwh where credit_profile_id = \'"+ credit_profile_id +"\'")',
+		
+		"CrdWarning1": '#("Select * from crprofl.credit_warning_history  cwh where credit_profile_id = \'"+ credit_profile_id +"\' and warning_id = \'"+ WarningId1 +"\' ")',
+		
+		"CrdWarning2": '#("Select * from crprofl.credit_warning_history  cwh where credit_profile_id = \'"+ credit_profile_id +"\' and warning_id = \'"+ WarningId2 +"\' ")',
+		
+			"PartyQry" : '#("SELECT * from crprofl.party  p where party_id = \'<party_id>\'")',
+		
+		"PartyIdentifctnQry" : '#("Select * from crprofl.party_identification pi2 where party_id = \'<party_id>\'")',
+		
+		"IdentChar": '#("Select * from crprofl.identification_char ic where identificaton_id = \'<IdntID_id>\'")',
+		
+		"IdentCharHash": '#("Select * from crprofl.identification_char_hash ich where identificaton_id =  \'<IdntID_id>\'")',
+		
+		"IndvlQry": '#("Select * from crprofl.individual i where party_id = \'<party_id>\'")',
+		
+		"parContMed": '#("Select * from crprofl.party_contact_medium pcm where party_id = \'<party_id>\'")',
+		
+		"ReadDBSyn": '#("Select * from crprofl.readdb_sync_status rss where customer_id = \'"+ CustomerID +"\'")',
+		
+		"OrgQry": '#("Select * from crprofl.organization o where party_id = \'<party_id>\'")'
+		
+		}
+	}

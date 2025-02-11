@@ -1,0 +1,38 @@
+{
+	
+	"IT01": {
+		"host": "localhost",
+		"port": "5432",
+		"dbName": "pg_crproflpv",
+		"username": "crproflpv_app",
+		"password": "passw0rd"
+	},
+	"IT02": {
+		"host": "localhost",
+		"port": "5432",
+		"dbName": "pg_crproflpt",
+		"username": "crproflpt_app",
+		"password": "passw0rd"
+	},
+	"IT03": {
+		"host": "localhost",
+		"port": "5432",
+		"dbName": "pg_crproflps",
+		"username": "crproflps_app",
+		"password": "passw0rd"
+	},
+	"IT04": {
+		"host": "localhost",
+		"port": "5432",
+		"dbName": "pg_crproflst",
+		"username": "crproflst_app",
+		"password": "passw0rd"
+	},
+	"DV": {
+		"host": "localhost",
+		"port": "5432",
+		"dbName": "pg_crprofldv",
+		"username": "crprofldv_app",
+		"password": "passw0rd"
+	}
+}

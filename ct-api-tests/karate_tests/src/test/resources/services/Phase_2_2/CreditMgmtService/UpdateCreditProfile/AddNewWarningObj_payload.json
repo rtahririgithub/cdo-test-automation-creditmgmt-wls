@@ -1,0 +1,40 @@
+
+{
+   "id": #(credit_profile_id),
+    "validFor": {
+        "endDateTime": null,
+        "startDateTime": "2021-01-09T16:51:22.620Z"
+    },
+    
+     "warnings": [
+                   {
+                    
+                          
+                         "warningCategoryCd": #(WarngCatCdNew),
+                        "warningCd": #(warCdNew),
+                        "warningDetectionTs": #(WdateNew),
+                        "warningStatusCd":  #(warStsCdNew),
+                        "resolvedPermanentlyInd": false,
+                        "approvalTs": "",
+                        "warningTypeCd": #(warningTypeCdNew),
+                        "warningItemTypeCd": #(warningItemTypeCdNew),
+                        "approvalCreditAssessmentId": "",
+                        "approvalExternalId": "",
+                        "validFor": {
+                            "endDateTime": "",
+                            "startDateTime": "2021-12-15T20:49:01.839Z"
+                        }	  
+                    }
+                ],
+    
+    "channel": {
+    "id": "565656",
+    "href": "https://host:port/tmf-api/ChannelManagement/v1/channel/565656",
+    "@schemaLocation": "https://AqvyAIdAlbPiJOjaqhii.xzFQOZhdcWG,UX6GVj3bZEHcT05pDgGR63FT",
+    "@baseType": "Channel",
+    "@type": "TelusChannel",
+    "originatorApplicationId": "817265",
+    "channelOrganizationId": "04418",
+    "userId": "t9898989"
+  }
+         }  

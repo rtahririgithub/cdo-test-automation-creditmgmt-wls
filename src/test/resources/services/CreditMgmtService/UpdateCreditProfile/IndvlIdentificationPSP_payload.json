@@ -1,0 +1,25 @@
+{
+    "engagedParty": {
+    "@referredType":"Individual",
+    "individualIdentification": [
+      {
+        "identificationId": #(IdNumUpdate),
+        "identificationType": #(idTypUpdate),
+        "issuingAuthority": #(countryUpdate),
+         "issuingDate": #(issuingDateUpdate),
+        "telusCharacteristic": {
+          "countryCd": #(countryUpdate)
+        },
+        "validFor": {
+          "endDateTime": #(endDateTimeUpdate),
+          "startDateTime": #(startDateTimeUpdate)
+        }
+      }
+    ]
+  },
+  "telusAuditCharacteristic": {
+    "userId": "ANSHIKA",
+    "originatorApplicationId": "19071",
+    "channelOrganizationId": ""
+  }
+}

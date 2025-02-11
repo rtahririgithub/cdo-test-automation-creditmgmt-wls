@@ -1,0 +1,61 @@
+{
+	"id": #(credit_profile_id),
+	"@baseType": "CreditProfile",
+	"@type": "CreditProfile",   
+	
+	"validFor": {
+            "endDateTime":#(endDateTime),
+            "startDateTime": "2022-01-09T16:51:22.620Z"
+    },
+    "creditClassCd": #(creditClsUpdate), 
+	"statusCd":  #(statusCd),
+    "channel": {
+        "originatorAppId": 12373,
+        "channelOrgId": 124432,
+        "@type": "Channel",
+        "userId": 122324
+    },
+    
+    "relatedParty": [
+      {
+         
+         "engagedParty": {
+          "@referredType": #(UpdateReffTyp),
+          "role": "Customer",
+          "birthDate": #(UpdateDOB),
+          "contactMedium": [
+            {
+              "characteristic": {
+                "contactType": "home",
+                "city": #(Updtaecity),
+                "country": #(UpdateCountry),
+                "postCode": "M2X M0M",
+                "stateOrProvince": "BC",
+                "street1": "114 Center Street",
+                "street2": "Unit 23"
+              },
+              "mediumType":#(UpdatemedTyp),
+              "preferred": "true",
+              "validFor": {
+                "endDateTime": null,
+                "startDateTime": "2021-01-09T17:51:22.620Z"
+              }
+            }
+          ],
+          "individualIdentification": [
+            {
+              "identificationId": #(UpdateIdNum),
+              "identificationType": #(UpdateidTyp),
+              "issuingAuthority": "BC",
+              "issuingDate": "2020-01-09T16:51:22.620Z",
+              "validFor": {
+                "endDateTime": "",
+                "startDateTime": ""
+              }
+            }
+          ]
+        }
+      }
+    ]
+   
+}

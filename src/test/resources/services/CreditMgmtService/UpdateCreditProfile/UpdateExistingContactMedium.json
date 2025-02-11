@@ -1,0 +1,27 @@
+{
+	"engagedParty": {
+		"birthDate": #(DOBUpdate),
+		"@referredType": "Individual",
+		"contactMedium": [
+			{
+				"id": #(ContactMedId),
+				"preferred": false,
+				"characteristic": {
+				"contactType": #(contactTypeUpdate),
+				"city": #(cityUpdate),
+				"country": #(CountryUpdate),
+				"postCode": #(postCdUpdate),
+				"stateOrProvince": #(provinceUpdate)
+				 },
+			}
+			
+		]
+	},
+	"@baseType": "Customer",
+	"@type": "TelusCustomer",
+	"telusAuditCharacteristic": {
+		"userId": "ANSHIKA",
+		"originatorApplicationId": "19071",
+		"channelOrganizationId": ""
+	}
+}

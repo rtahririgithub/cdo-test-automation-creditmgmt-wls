@@ -1,0 +1,88 @@
+{
+  "creditProfile": [
+    {
+      "creditProfileDate": "2021-01-15T16:51:22.620Z",
+      "creditRiskRating": 400,
+      "creditScore": 600,
+      "validFor": {
+        "endDateTime": #(endDt),
+        "startDateTime": #(strtDt)
+      },
+      "telusCharacteristic": {
+        "bureauDecisionCode": "E29",
+        "clpCreditLimit": "250",
+        "creditAssessmentId": 54227,
+        "creditClassCd": "D",
+        "creditClassDate": "2018-01-02T16:51:22.620Z",
+        "creditDecisionCd": "TABNELCM0028",
+        "creditDecisionDate": "2018-01-09T16:51:22.620Z",
+        "creditProgramName": "DEP",
+        "primaryCreditScoreCd": "600",
+        "primaryCreditScoreTypeCd": "CUSTOM",
+        "riskLevelDecisionCd": "TNSBCWOCM003",
+        "riskLevelDt": "2018-01-01T16:51:22.620Z",
+        "riskLevelNumber": "400",
+        "warningHistoryList": [
+          {
+            "approvalDate": "2018-01-09T16:51:22.620Z",
+            "creditAssessmentId": 24197,
+            "memoTypeCd": "HCDF",
+            "resolvedPermanentlyInd": "true",
+            "validFor": {
+              "endDateTime": #(endDt),
+        "startDateTime": #(strtDt)
+            },
+            "warningCategoryCd": "CCW",
+            "warningCd": "IDENTITY_FRAUD_01",
+            "warningDetectionDate": "2019-01-10T16:51:22.620Z",
+            "warningHistoryLegacyId": 5936,
+            "warningItemTypeCd": "CCW",
+            "warningStatusCd": "UNVERIFIED",
+            "warningTypeCd": "WT3"
+          }
+        ]
+      }
+    }
+  ],
+  "engagedParty": {
+    "@referredType":"Individual",
+    "birthDate": "1990-01-09",
+    "contactMedium": [{
+      "characteristic": {
+        "contactType": "home",
+        "city": "Vancouver",
+        "country": "CAN",
+        "postCode": "1A2 3B4",
+        "stateOrProvince": "BC",
+        "street1": "1 Center Street",
+        "street2": "Unit 23"
+      },
+      "mediumType": "postalAddress",
+      "preferred" : "true",
+      "validFor": {
+          "endDateTime": #(endDt),
+        "startDateTime": #(strtDt)
+        }
+    }],
+    "individualIdentification": [
+      {
+        "identificationId": "DL12345678",
+        "identificationType": "Drivers License",
+        "issuingAuthority": "BC",
+        "issuingDate": "2020-01-09T16:51:22.620Z",
+        "telusCharacteristic": {
+          "provinceCd": "BC"
+        },
+        "validFor": {
+         "endDateTime": #(endDt),
+        "startDateTime": #(strtDt)
+        }
+      }
+    ]
+  },
+  "telusAuditCharacteristic": {
+    "userId": #(userId),
+    "originatorApplicationId": #(OrgAppId),
+    "channelOrganizationId": ""
+  }
+}
